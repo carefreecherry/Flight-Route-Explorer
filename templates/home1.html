@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Path</title>
+    <!-- Include the CesiumJS library -->
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.82/Build/Cesium/Cesium.js"></script>
+    <link href="https://cesium.com/downloads/cesiumjs/releases/1.82/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='DDstyle.css') }}">
+</head>
+<body>
+    <div class="dropdown">
+        <!-- Search input -->
+        <input type="text" class="search-input" id="airportSearch" onkeyup="filterDropdown()" placeholder="Enter Airport Name">
+        <button onclick="searchAirport()">Search</button>
+        <button onclick="displayShortestPath()">Go</button>
+        <button id="loadAirportsButton">Load Airports</button>
+        <!-- Dropdown list -->
+        <div class="dropdown-list" id="dropdown-list">
+        </div>
+        <div id="distance"></div>  
+      </div> 
+      <script src="{{ url_for('static', filename='js/Dropdown.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/Search.js') }}"></script>
+    <div id="cesiumContainer" style="width: 100%; height: 100%;"></div>   
+    <div id="customCreditContainer"></div>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/Airports.js') }}"></script>
+</body>
+</html>
